@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Neighborhood</title>
+
+    <!-- Bootstrap CSS Links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <span class="nav-title">Bangalore Neighborhood Map</span>
+          </div>
+        </div>
+
+        <form class="navbar-form navbar-right" role="search">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="q" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
+              <div class="input-group-btn">
+                  <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <main class="container-fluid">
+      <div class="row">
+        <div id="map"></div>
+
+        <aside class="col-md-3 col-md-offset-9 collapsed in" id="navbarSupportedContent">
+          <div class="sidenav">
+            <div class="list-group" data-bind="foreach: locationList">
+                <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: show"></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+   
+
+    <!-- Knockoutjs links-->
+    <script src="js/lib/knockout.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyC5hFiubYcLHgVrzNekNVgkCj-0ll9O90g&callback=initMap" onerror="googleMapsError()">
+    </script>
+  </body>
+</html>
